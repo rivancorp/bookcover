@@ -1,3 +1,17 @@
+show ip int brief
+show ip vrf
+show vlan brief
+show spanning-tree vlan 1
+Cisco Commands:
+configure terminal
+enable secret pass
+username admin privilege 15 secret pass
+line vty 0 14
+ login local
+ transport input ssh telnet
+
+
+
 TOP 15 
 az login
 az account set --subscription "your-subscription-id"
@@ -7,14 +21,14 @@ az vm list --output table
 az vm delete --resource-group myResourceGroup --name myVM --yes
 az network vnet create --name myVnet --resource-group myResourceGroup --subnet-name mySubnet
 az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 az storage account create --name mystorageaccount --resource-group myResourceGroup --location eastus --sku Standard_LRS
 az storage container create --name mycontainer --account-name mystorageaccount
 az sql server create --name mydemoserver --resource-group myResourceGroup --location eastus --admin-user myadmin --admin-password mypassword
 az sql db create --resource-group myResourceGroup --server mydemoserver --name mySampleDatabase --service-objective S0
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name mywebapp --runtime "NODE|14-lts"
-az functionapp create --resource-group myResourceGroup --consumption-plan-location eastus --runtime node --runtime-version 14 --functions-version 3 --name myfunctionapp --storage-account mystorageaccount
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
-
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 
 
 AWS tip 20:
@@ -38,7 +52,7 @@ aws sns subscribe --topic-arn arn:aws:sns:us-east-1:123456789012:myTopic --proto
 aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:myTopic --message "Hello World!"
 aws sqs create-queue --queue-name myQueue
 aws sqs send-message --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/myQueue --message-body "Hello World!"
-g
+
 
 
 

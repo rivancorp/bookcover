@@ -1,0 +1,61 @@
+TOP 15 
+az login
+az account set --subscription "your-subscription-id"
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+az vm list --output table
+az vm delete --resource-group myResourceGroup --name myVM --yes
+az network vnet create --name myVnet --resource-group myResourceGroup --subnet-name mySubnet
+az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
+az storage account create --name mystorageaccount --resource-group myResourceGroup --location eastus --sku Standard_LRS
+az storage container create --name mycontainer --account-name mystorageaccount
+az sql server create --name mydemoserver --resource-group myResourceGroup --location eastus --admin-user myadmin --admin-password mypassword
+az sql db create --resource-group myResourceGroup --server mydemoserver --name mySampleDatabase --service-objective S0
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name mywebapp --runtime "NODE|14-lts"
+az functionapp create --resource-group myResourceGroup --consumption-plan-location eastus --runtime node --runtime-version 14 --functions-version 3 --name myfunctionapp --storage-account mystorageaccount
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
+
+
+
+AWS tip 20:
+aws configure
+aws s3 ls
+aws s3 cp myfile.txt s3://mybucket/myfile.txt
+aws ec2 describe-instances
+aws ec2 start-instances --instance-ids i-1234567890abcdef0
+aws ec2 stop-instances --instance-ids i-1234567890abcdef0
+aws ec2 terminate-instances --instance-ids i-1234567890abcdef0
+aws ec2 create-key-pair --key-name MyKeyPair --query 'KeyMaterial' --output text > MyKeyPair.pem
+aws rds describe-db-instances
+aws rds create-db-instance --db-instance-identifier mydbinstance --db-instance-class db.t2.micro --engine mysql --allocated-storage 20 --master-username admin --master-user-password secret99
+aws lambda create-function --function-name myFunction --zip-file fileb://function.zip --handler index.handler --runtime nodejs14.x --role arn:aws:iam::123456789012:role/lambda-ex
+aws iam create-user --user-name myUser
+aws iam attach-user-policy --user-name myUser --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+aws cloudformation create-stack --stack-name myStack --template-body file://template.json
+aws dynamodb create-table --table-name myTable --attribute-definitions AttributeName=Id,AttributeType=S --key-schema AttributeName=Id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+aws sns create-topic --name myTopic
+aws sns subscribe --topic-arn arn:aws:sns:us-east-1:123456789012:myTopic --protocol email --notification-endpoint myemail@example.com
+aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:myTopic --message "Hello World!"
+aws sqs create-queue --queue-name myQueue
+aws sqs send-message --queue-url https://sqs.us-east-1.amazonaws.com/123456789012/myQueue --message-body "Hello World!"
+g
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
